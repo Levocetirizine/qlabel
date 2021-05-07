@@ -9,8 +9,8 @@ ToolBar {
   id: toolbar_root
 
   NewProjectDialog { id: newproject }
-  SaveBeforeOpenDialog { id: savebefore }
   DelectPageDialog { id: deletedialog }
+  SaveBeforeOpenDialog { id: savebefore }
   SettingsDialog { id: settingsdialog }
 
   Flow {
@@ -257,7 +257,6 @@ ToolBar {
       icon.source: '../svg/settings.svg'
       onClicked: {
         settingsdialog.open()
-//        trans.selectLanguage("zh_CN")
       }
     }
 

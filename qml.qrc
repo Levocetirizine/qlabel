@@ -59,5 +59,6 @@
         <file>svg/settings.svg</file>
         <file>svg/tool.svg</file>
         <file>dialogs/SettingsDialog.qml</file>
+        <file>dialogs/ExitConfirmDialog.qml</file>
     </qresource>
 </RCC>

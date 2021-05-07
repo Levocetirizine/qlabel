@@ -19,7 +19,7 @@ ApplicationWindow {
   width: 1024
   height: 768
   visible: false
-  title: qsTr('qLabel alpha 0.1')
+  title: qsTr('qLabel alpha 0.11')
 
   /* global states */
   property int tag: 0
@@ -43,6 +43,7 @@ ApplicationWindow {
   SaveProjectAsDialog { id: saveProject }
   AddImageDialog { id: addImage }
   ModifyTagDialog { id: modifytagdialog }
+  ExitConfirmDialog { id: exitdialog }
 
   /* shared info dialog box */
   InfoDialog { id: infodialog }
@@ -158,6 +159,11 @@ ApplicationWindow {
       settings.maximized = true
     } else {
       settings.maximized = false
+    }
+
+    if (root.model_loaded && mainmodel.modelChanged()) {
+      close.accepted = false
+      exitdialog.open()
     }
   }
 }
