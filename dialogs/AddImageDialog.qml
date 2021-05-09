@@ -54,5 +54,7 @@ FileDialog {
         firstinsert = false
       }
     }
+
+    root.last_opened_dir = folder
   }
 }

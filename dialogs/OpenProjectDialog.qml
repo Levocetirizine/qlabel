@@ -15,6 +15,7 @@ FileDialog {
     root.work_name = Utils.getname(url)
     mainmodel.openUrl(fileUrl)
     root.model_loaded = true
+    root.last_opened_dir = folder
     close()
   }
 

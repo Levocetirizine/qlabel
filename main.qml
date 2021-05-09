@@ -24,6 +24,7 @@ ApplicationWindow {
   /* global states */
   property int tag: 0
   property int mode: Enum.Label
+  property string last_opened_dir: ''
   property string work_dir: ''
   property string work_name: ''
   property bool model_loaded: false
@@ -61,6 +62,7 @@ ApplicationWindow {
         source = "dialogs/AddImageDialog.qml"
       }
       if (status === Loader.Ready) {
+        item.folder = root.last_opened_dir
         item.open()
       }
     }
@@ -73,6 +75,7 @@ ApplicationWindow {
         source = "dialogs/OpenProjectDialog.qml"
       }
       if (status === Loader.Ready) {
+        item.folder = root.last_opened_dir
         item.open()
       }
     }
@@ -102,6 +105,7 @@ ApplicationWindow {
 
     property alias width: root.width
     property alias height: root.height
+    property alias lastdir: root.last_opened_dir
     property bool maximized: false
 
     Component.onCompleted: {

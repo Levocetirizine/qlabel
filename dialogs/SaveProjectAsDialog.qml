@@ -12,14 +12,12 @@ FileDialog {
 
   onAccepted: {
     mainmodel.saveUrl(fileUrl)
-    console.log(fileUrl)
     root.work_dir = Utils.getdir(String(fileUrl))
     root.work_name = Utils.getname(String(fileUrl))
-    console.log('done')
+    root.last_opened_dir = folder
   }
 
   onRejected: {
-    console.log("Canceled")
     close()
   }
 }
