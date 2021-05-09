@@ -38,12 +38,60 @@ ApplicationWindow {
   QuickMenu { id: quickmenu }
   IndexSelectorDialog { id: isdialog }
   PuncCheckDialog { id: pcdialog }
-  SearchDialog { id: searchdialog }
-  OpenProjectDialog { id: openProject }
-  SaveProjectAsDialog { id: saveProject }
-  AddImageDialog { id: addImage }
   ModifyTagDialog { id: modifytagdialog }
   ExitConfirmDialog { id: exitdialog }
+
+  /* dynamic loading */
+  Loader {
+    id: searchdialog
+    function open() {
+      if (status === Loader.Null) {
+        source = "dialogs/AddImageDialog.qml"
+      }
+      if (status === Loader.Ready) {
+        item.open()
+      }
+    }
+  }
+
+  Loader {
+    id: addImage
+    function open() {
+      if (status === Loader.Null) {
+        source = "dialogs/AddImageDialog.qml"
+      }
+      if (status === Loader.Ready) {
+        item.open()
+      }
+    }
+  }
+
+  Loader {
+    id: openProject
+    function open() {
+      if (status === Loader.Null) {
+        source = "dialogs/OpenProjectDialog.qml"
+      }
+      if (status === Loader.Ready) {
+        item.open()
+      }
+    }
+  }
+
+  Loader {
+    id: saveProject
+    function open(path) {
+      if (status === Loader.Null) {
+        source = "dialogs/SaveProjectAsDialog.qml"
+      }
+      if (status === Loader.Ready) {
+        if (path) {
+          item.folder = path
+        }
+        item.open()
+      }
+    }
+  }
 
   /* shared info dialog box */
   InfoDialog { id: infodialog }

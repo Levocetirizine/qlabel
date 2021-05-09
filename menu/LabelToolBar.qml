@@ -71,8 +71,7 @@ ToolBar {
             if (root.work_name) {
               mainmodel.saveUrl(root.work_dir + '/' + root.work_name)
             } else {
-              saveProject.folder = root.work_dir
-              saveProject.open()
+              saveProject.open(root.work_dir)
             }
           } else {
             console.log('save: model not loaded')
@@ -93,10 +92,7 @@ ToolBar {
         ToolTip.visible: hovered
         onClicked: {
           if (root.model_loaded) {
-            if (root.work_dir !== '') {
-              saveProject.folder = root.work_dir
-            }
-            saveProject.open()
+            saveProject.open(root.work_dir)
           } else {
             console.log('save as: model not loaded')
           }
