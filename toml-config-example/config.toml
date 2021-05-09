@@ -1,0 +1,67 @@
+
+[general]
+  project = "qlabel"
+  version = "0.1"
+
+[model]
+  default_tag = [
+    "框内",
+    "框外",
+    "备注",
+  ]
+
+
+[view]
+  # dark red, dark blue, dark green, dark purple, orange, teal, darken
+  palette = [
+    "#b91d47",
+    "#2b5797",
+    "#1e7145",
+    "#603cba",
+    "#e3a21a",
+    "#00aba9",
+    "#1d1d1d"
+  ]
+
+
+[edit]
+  quick_text = [
+    "～",
+    "・",
+    "……",
+    "❤",
+    "♡",
+    "♪"
+  ]
+
+  [[edit.punc_checks]]
+    name = "Force Fullwidth"
+    rules = [
+      { from = [":"] , to = "：" } ,
+      { from = [";"] , to = "；" } ,
+      { from = [","] , to = "，" } ,
+      { from = ["."] , to = "。" } ,
+      { from = ["?"] , to = "？" } ,
+      { from = ["!"] , to = "！" } ,
+      { from = ["~"] , to = "～" }
+    ]
+
+  [[edit.punc_checks]]
+    name = "Force Halfwidth"
+    rules = [
+      { from = ["："] , to = ":" } ,
+      { from = ["；"] , to = ";" } ,
+      { from = ["，"] , to = "," } ,
+      { from = ["。"] , to = "." } ,
+      { from = ["？"] , to = "?" } ,
+      { from = ["！"] , to = "!" } ,
+      { from = ["“", "”"] , to = "\"" } ,
+      { from = ["‘", "’"] , to = "'" } ,
+      { from = ["～"] , to = "~" }
+    ]
+
+  [[edit.punc_checks]]
+    name = "Use CJK ellipsis"
+    rules = [
+      {from = ["..."] , to = "…"}
+    ]
